@@ -1,0 +1,48 @@
+<div class="definition">
+  <li [class.completed]="task.completed" [class.expired]="task.date && isExpired(task.date)">
+    
+    <!-- Texto ou edição -->
+    <span *ngIf="editIndex !== index">
+      {{ task.text }}
+      <span *ngIf="task.date"> - {{ task.date }}</span>
+    </span>
+
+    <input *ngIf="editIndex === index" [(ngModel)]="editTaskValue" (keyup.enter)="save.emit(index)"
+      placeholder="Edite a tarefa" />
+
+    <!-- Botão de adicionar data -->
+    <button *ngIf="!task.date && !task.completed && !showDateInput[index] && editIndex !== index"
+      (click)="toggleDateInput.emit(index)">
+      Adicionar Data
+    </button>
+
+    <!-- Campo para salvar data -->
+    <div *ngIf="!task.date && !task.completed && showDateInput[index] && editIndex !== index">
+      <input type="date" #dateInput />
+      <button (click)="addDate.emit({ task, date: dateInput.value })">Salvar Data</button>
+    </div>
+
+    <!-- Ações -->
+    <button *ngIf="editIndex !== index && !task.completed" (click)="edit.emit(index)">Editar</button>
+    <button *ngIf="editIndex === index" (click)="save.emit(index)">Salvar</button>
+    <button *ngIf="!task.completed" (click)="complete.emit(index)" class="complete-btn">Concluir</button>
+    <button (click)="remove.emit(index)" class="btn btn-category">Remover</button>
+
+    <!-- Select de categorias -->
+    <div *ngIf="!task.completed && !isCategoryAdded && !task.category" class="category-select">
+      <select [(ngModel)]="selectedCategory">
+        <option value="" disabled selected>Selecionar Categoria</option>
+        <option *ngFor="let cat of predefinedCategories" [value]="cat">{{ cat }}</option>
+      </select>
+      <button [disabled]="!selectedCategory" (click)="onConfirmCategory()" class="btn btn-category">
+        Adicionar Categoria
+      </button>
+    </div>
+
+    <!-- Mensagem de feedback -->
+    <span *ngIf="!task.completed && (isCategoryAdded || task.category)">
+      ✔️ Categoria Adicionada
+    </span>
+    
+  </li>
+</div>

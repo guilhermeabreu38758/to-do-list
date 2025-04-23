@@ -1,0 +1,86 @@
+.definition {
+    list-style: none;
+    padding: 0;
+}
+
+.definition li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    flex: auto;
+}
+
+.definition li span {
+    flex: 100%;
+    hyphens: auto;
+    white-space: normal;
+}
+
+.definition li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.definition li button:hover {
+    background-color: #a71d2a;
+}
+
+.definition button {
+    margin-right: 8px;
+}
+
+/* Opcional: Remover margem do último botão */
+.definition button:last-child {
+    margin-right: 0;
+}
+
+.definition li.completed {
+    background-color: #9fe69f; // verde claro
+    border-left: 4px solid #28a745;
+}
+
+.completed-style span {
+    color: #1e7e34;
+    font-weight: bold;
+}
+
+.definition li button.complete-btn {
+    background-color: #28a745;
+    /* verde, por exemplo */
+    color: white;
+}
+
+.definition li button.complete-btn:hover {
+    background-color: #1e7e34;
+}
+
+.definition li.expired {
+    background-color: #ffe6e6; // Vermelho clarinho
+    border-left: 4px solid #ff4d4d;
+}
+
+.definition li.expired span {
+    color: #cc0000; // Texto em vermelho mais forte
+    font-weight: bold;
+}
+
+// .btn-remove {
+//     background-color: #dc3545;
+//     color: white;
+//     border: none;
+//     border-radius: 30px;
+//     padding: 10px 20px;
+//     font-size: 14px;
+//     cursor: pointer;
+  
+//     &:hover {
+//       background-color: #c82333;
+//     }
+//   }

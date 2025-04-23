@@ -1,0 +1,62 @@
+/* filepath: /home/guilherme/message/src/app/app.component.scss */
+.todo-container {
+    font-family: Arial, sans-serif;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.add-task {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-task input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-task button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-task button:hover {
+    background-color: #0056b3;
+}
+
+.task-options {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+      transition: background 0.2s;
+  
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
